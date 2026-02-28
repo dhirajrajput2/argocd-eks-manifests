@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argocd-eks-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: argocd-eks-demo
+  template:
+    metadata:
+      labels:
+        app: argocd-eks-demo
+    spec:
+      containers:
+      - name: argocd-eks-demo
+        image: dhiraj9190/argocd-eks-demo:latest
+        ports:
+        - containerPort: 80
